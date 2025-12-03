@@ -13,7 +13,6 @@ RUN apt-get update && apt-get install -y \
     chromium-driver \
     libglib2.0-0 \
     libnss3 \
-    libgconf-2-4 \
     libfontconfig1 \
     && rm -rf /var/lib/apt/lists/*
 
@@ -32,4 +31,5 @@ COPY . .
 EXPOSE 10000
 
 # 啟動指令 (使用 gunicorn 作為生產環境伺服器)
+
 CMD ["gunicorn", "-w", "1", "-b", "0.0.0.0:10000", "--timeout", "120", "app:app"]
