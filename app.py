@@ -36,12 +36,15 @@ CARDS_PER_PAGE = COLS * ROWS
 
 def get_driver():
     options = Options()
-    # 雲端環境必須的參數
-    options.add_argument('--headless') # 絕對要無頭模式
+    # === 極省記憶體設定 ===
+    options.add_argument('--headless=new') # 使用新版無頭模式，效能較好
     options.add_argument('--no-sandbox')
-    options.add_argument('--disable-dev-shm-usage')
-    options.add_argument('--disable-gpu')
-    options.add_argument("--window-size=1920,1080")
+    options.add_argument('--disable-dev-shm-usage') # 關鍵：不使用共享記憶體，防止崩潰
+    options.add_argument('--disable-gpu') # 關閉 GPU 加速 (伺服器沒顯卡，開了浪費 RAM)
+    options.add_argument('--disable-extensions') # 禁用擴充功能
+    options.add_argument('--disable-infobars')
+    options.add_argument('--disable-browser-side-navigation')
+    options.add_argument("--window-size=1280,720")
     
     # 檢測是否在 Docker/Render 環境 (透過環境變數)
     chrome_bin = os.environ.get('CHROME_BIN')
@@ -55,6 +58,9 @@ def get_driver():
         service = Service(ChromeDriverManager().install())
 
     driver = webdriver.Chrome(service=service, options=options)
+    
+    driver.set_page_load_timeout(60) 
+    
     return driver
 
 # --- 核心工具：多執行緒下載器 ---
@@ -367,8 +373,7 @@ def process():
 
         # === 2. 並行下載圖片 (Python Threading 負責) ===
         print(f">>> 開始並行下載 {len(img_urls)} 張圖片...")
-        pil_images = parallel_download_images(img_urls, max_workers=10)
-
+        pil_images = parallel_download_images(img_urls, max_workers=2)
         # === 3. 生成 PDF (Pillow 負責) ===
         print(">>> 正在生成 PDF...")
         pdf_buffer = generate_pdf_from_pil_images(pil_images, counts, game_type)
