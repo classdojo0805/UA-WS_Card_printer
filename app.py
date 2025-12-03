@@ -3,6 +3,7 @@ import io
 import re
 import time
 import requests
+import gc
 from math import floor
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from flask import Flask, render_template, request, send_file, jsonify
@@ -83,7 +84,7 @@ def download_single_image(url):
     
     return Image.new("RGB", (CARD_WIDTH_PX, CARD_HEIGHT_PX), "white")
 
-def parallel_download_images(url_list, max_workers=10):
+def parallel_download_images(url_list, max_workers=1):
     """
     使用 ThreadPoolExecutor 進行並行下載
     """
@@ -373,7 +374,7 @@ def process():
 
         # === 2. 並行下載圖片 (Python Threading 負責) ===
         print(f">>> 開始並行下載 {len(img_urls)} 張圖片...")
-        pil_images = parallel_download_images(img_urls, max_workers=2)
+        pil_images = parallel_download_images(img_urls, max_workers=1)
         # === 3. 生成 PDF (Pillow 負責) ===
         print(">>> 正在生成 PDF...")
         pdf_buffer = generate_pdf_from_pil_images(pil_images, counts, game_type)
@@ -385,10 +386,29 @@ def process():
             mimetype='application/pdf'
         )
 
+            
+            
     except Exception as e:
         print(f"嚴重錯誤: {e}")
         if driver.service.process: driver.quit() # 確保出錯時關閉
         return jsonify({'error': str(e)}), 500
+    
+    # 在 process 函式的 finally 區塊
+    finally:
+    # 確保瀏覽器關閉
+        if 'driver' in locals() and driver:
+            try:
+                driver.quit()
+            except:
+                pass
+    
+    # 清理暫存資料夾
+    if os.path.exists(temp_dir): 
+        shutil.rmtree(temp_dir)
+    
+    # === 新增：強制垃圾回收 ===
+    gc.collect() 
+    print("記憶體已釋放")
 
 if __name__ == '__main__':
     # 讓 Render 動態決定 Port，本地則用 5000
