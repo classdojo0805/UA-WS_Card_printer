@@ -1,16 +1,16 @@
-# CARD PRINTER PRO 🃏🖨️
+# CARD PRINTER PRO 
 <img width="2868" height="1708" alt="螢幕擷取畫面 2026-04-10 171351" src="https://github.com/user-attachments/assets/22b1d06e-0b11-4c48-bcb5-a0c1856029cb" />
 
 CARD PRINTER PRO 是一個專為實體卡牌玩家開發的自動排版與印製輔助工具。
 
-[cite_start]此專案可根據使用者的需求，選擇對應的卡牌遊戲 [cite: 2][cite_start]，透過自動化腳本抓取組牌網的資料，並一鍵產出完美符合 A4 尺寸、可直接列印的 PDF 檔案 [cite: 2, 21]。
+此專案可根據使用者的需求，選擇對應的卡牌遊戲，透過自動化腳本抓取組牌網的資料，並一鍵產出完美符合 A4 尺寸、可直接列印的 PDF 檔案 。
 
 ## ✨ 核心功能
 
-* [cite_start]**跨遊戲支援**：目前支援 Union Arena (UA)、Weiß Schwarz (WS) 與 One Piece Card Game (OPCG) 三大卡牌遊戲 [cite: 11, 13, 15]。
-* [cite_start]**Selenium 自動化**：透過 Selenium 模擬瀏覽器自動抓取卡牌圖片與資訊 [cite: 39]。
-* [cite_start]**一鍵生成 PDF**：貼上對應的代碼後，即可自動排版並產出 PDF 檔案 [cite: 2]。
-* [cite_start]**圖片打包下載**：支援勾選「同時下載圖片檔」，在輸出結束後會將原始卡牌圖檔與 PDF 一併打包成 ZIP 壓縮檔匯出 [cite: 3]。
+* [cite_start]**跨遊戲支援**：目前支援 Union Arena (UA)、Weiß Schwarz (WS) 與 One Piece Card Game (OPCG) 三大卡牌遊戲 。
+* [cite_start]**Selenium 自動化**：透過 Selenium 模擬瀏覽器自動抓取卡牌圖片與資訊 。
+* [cite_start]**一鍵生成 PDF**：貼上對應的代碼後，即可自動排版並產出 PDF 檔案。
+* [cite_start]**圖片打包下載**：支援勾選「同時下載圖片檔」，在輸出結束後會將原始卡牌圖檔與 PDF 一併打包成 ZIP 壓縮檔匯出。
 
 ## 📸 畫面預覽
 
@@ -24,7 +24,7 @@ CARD PRINTER PRO 是一個專為實體卡牌玩家開發的自動排版與印製
 
 ![最終輸出結果]<img width="2449" height="1919" alt="螢幕擷取畫面 2026-04-10 172736" src="https://github.com/user-attachments/assets/08fe00d0-e3c3-4f9b-8bf1-0d80c059f254" />
 
-[cite_start]*ZIP 壓縮檔內容預覽（包含 PDF 與獨立圖檔）* [cite: 61, 87]
+[cite_start]*ZIP 壓縮檔內容預覽（包含 PDF 與獨立圖檔）* 
 ![ZIP內容]<img width="1182" height="385" alt="螢幕擷取畫面 2026-04-10 173431" src="https://github.com/user-attachments/assets/18ab7eff-abd2-42d1-95fe-4cbc87af92fc" />
 <img width="2543" height="550" alt="螢幕擷取畫面 2026-04-10 173532" src="https://github.com/user-attachments/assets/269fd20b-3485-402d-a364-1817de8ea206" />
 
@@ -32,22 +32,22 @@ CARD PRINTER PRO 是一個專為實體卡牌玩家開發的自動排版與印製
 
 ## 📖 使用說明
 
-### [cite_start]各遊戲代碼取得流程 [cite: 9]
+### [cite_start]各遊戲代碼取得流程 
 
-1.  [cite_start]**Union Arena (UA)** [cite: 11]
+1.  [cite_start]**Union Arena (UA)**
     * 前往 `Rugia Creation` 組牌網。
     * [cite_start]點擊左側的「複製牌組 (Deck URL)」[cite: 10][cite_start]，直接貼到本工具的輸入框中 [cite: 12]。
-2.  [cite_start]**Weiß Schwarz (WS)** [cite: 13]
+2.  [cite_start]**Weiß Schwarz (WS)**
     * 前往 `貓罐子 (BottleNeko)` 組牌網。
     * [cite_start]組完牌後複製「牌組網址 (Deck Log)」[cite: 14][cite_start]，貼到輸入框中 [cite: 12]。
-3.  [cite_start]**One Piece Card Game (OPCG)** [cite: 15]
-    * [cite_start]前往 `OP Meta Builder` 組牌網 [cite: 16]。
+3.  [cite_start]**One Piece Card Game (OPCG)** 
+    * [cite_start]前往 `OP Meta Builder` 組牌網 。
     * [cite_start]在左側牌組預覽區找到「Export Deck List」，點擊複製文字內容 [cite: 17, 20][cite_start]，貼到輸入框中 [cite: 12]。
 
-## [cite_start]✂️ 手作流程教學 [cite: 18]
+## [cite_start]✂️ 手作流程教學
 
 拿到程式生成的 PDF 後，請依照以下步驟製作實體卡牌：
 
-1.  [cite_start]**前往影印店**：帶著 PDF 檔案前往影印店，建議選擇「彩色列印」，並使用 A4 規格列印 [cite: 19, 21]。
-2.  [cite_start]**設定列印參數**：在列印設定介面中，**務必確認將列印比例設定為「實際大小」或「100%」** [cite: 22, 24]，避免卡牌尺寸跑版。
-3.  [cite_start]**裁切與裝套**：沿著邊緣裁下卡片，放入卡套中，並在後方塞入一張廢卡增加厚度，即可完成！ [cite: 23, 26]
+1.  [cite_start]**前往影印店**：帶著 PDF 檔案前往影印店，建議選擇「彩色列印」，並使用 A4 規格列印 。
+2.  [cite_start]**設定列印參數**：在列印設定介面中，**務必確認將列印比例設定為「實際大小」或「100%」** ，避免卡牌尺寸跑版。
+3.  [cite_start]**裁切與裝套**：沿著邊緣裁下卡片，放入卡套中，並在後方塞入一張廢卡增加厚度，即可完成！ 
