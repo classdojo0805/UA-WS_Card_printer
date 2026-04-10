@@ -1,4 +1,5 @@
-<img width="2868" height="1708" alt="螢幕擷取畫面 2026-04-10 171351" src="https://github.com/user-attachments/assets/22b1d06e-0b11-4c48-bcb5-a0c1856029cb" /># CARD PRINTER PRO 🃏🖨️
+# CARD PRINTER PRO 🃏🖨️
+<img width="2868" height="1708" alt="螢幕擷取畫面 2026-04-10 171351" src="https://github.com/user-attachments/assets/22b1d06e-0b11-4c48-bcb5-a0c1856029cb" />
 
 CARD PRINTER PRO 是一個專為實體卡牌玩家開發的自動排版與印製輔助工具。
 
