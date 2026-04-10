@@ -10,7 +10,7 @@ CARD PRINTER PRO 是一個專為實體卡牌玩家開發的自動排版與印製
 * **一鍵生成 PDF**：貼上對應的代碼後，即可自動排版並產出 PDF 檔案。
 * **圖片打包下載**：支援勾選「同時下載圖片檔」，在輸出結束後會將原始卡牌圖檔與 PDF 一併打包成 ZIP 壓縮檔匯出。
 
-## 📸 畫面預覽
+##  畫面預覽
 
 ### 操作介面
 <img width="2868" height="1708" alt="螢幕擷取畫面 2026-04-10 171351" src="https://github.com/user-attachments/assets/f4b6d69d-124e-444b-9dfb-e2e8c4e06a98" />
